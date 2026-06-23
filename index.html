@@ -860,92 +860,133 @@
     *, *::before, *::after { transition: none !important; }
   }
 
-  /* CASES */
+  /* CASES CAROUSEL */
   .cases {
     background: var(--white);
-    padding: 6rem 5%;
+    padding: 6rem 0 6rem 5%;
+    overflow: hidden;
   }
 
-  .cases-grid {
-    max-width: 1100px;
-    margin: 3rem auto 0;
+  .cases .section-header {
+    padding-right: 5%;
+  }
+
+  .carousel-wrap {
+    position: relative;
+    margin-top: 2.5rem;
+  }
+
+  .carousel-track {
+    display: flex;
+    gap: 1.25rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-right: 5%;
+    cursor: grab;
+  }
+
+  .carousel-track::-webkit-scrollbar { display: none; }
+  .carousel-track.dragging { cursor: grabbing; }
+
+  .case-card {
+    flex: 0 0 340px;
+    scroll-snap-align: start;
+    background: var(--cream);
+    border-radius: 2px;
+    padding: 2.25rem;
     display: flex;
     flex-direction: column;
-    gap: 1px;
-    background: #e8e4de;
+    gap: 1rem;
+    border-top: 3px solid var(--gold);
+    transition: box-shadow 0.2s;
   }
 
-  .case-item {
-    background: var(--white);
-    display: grid;
-    grid-template-columns: 280px 1fr;
-    gap: 0;
-    cursor: default;
-    transition: background 0.2s;
-  }
-
-  .case-item:hover { background: var(--cream); }
-
-  .case-left {
-    padding: 2rem 2.5rem;
-    border-right: 1px solid #e8e4de;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 0.5rem;
+  .case-card:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
   }
 
   .case-num {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--gold);
     font-weight: 500;
+    letter-spacing: 0.1em;
   }
 
   .case-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.25rem;
+    font-size: 1.3rem;
     font-weight: 600;
     color: var(--forest);
     line-height: 1.25;
   }
 
-  .case-right {
-    padding: 2rem 2.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
   .case-lead {
-    font-size: 0.88rem;
-    color: var(--charcoal);
-    font-weight: 500;
-    margin-bottom: 0.6rem;
-    line-height: 1.5;
+    font-size: 0.84rem;
+    color: var(--mid);
+    line-height: 1.65;
+    flex: 1;
   }
 
-  .case-items {
+  .case-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.4rem;
-    margin-top: 0.5rem;
+    gap: 0.35rem;
+    margin-top: 0.25rem;
   }
 
   .case-tag {
-    font-size: 0.72rem;
+    font-size: 0.68rem;
     font-weight: 500;
-    color: var(--mid);
-    background: var(--cream);
-    border: 1px solid #ddd8d0;
-    padding: 0.25rem 0.7rem;
+    color: var(--sage);
+    background: white;
+    border: 1px solid #c5dace;
+    padding: 0.2rem 0.6rem;
     border-radius: 1px;
   }
 
-  @media (max-width: 900px) {
-    .case-item { grid-template-columns: 1fr; }
-    .case-left { border-right: none; border-bottom: 1px solid #e8e4de; padding: 1.5rem 1.5rem 1rem; }
-    .case-right { padding: 1rem 1.5rem 1.5rem; }
+  .carousel-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 1.75rem;
+    padding-right: 5%;
+  }
+
+  .carousel-btn {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    border: 1px solid #ddd8d0;
+    background: white;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
+    color: var(--forest);
+    transition: background 0.15s, border-color 0.15s;
+    flex-shrink: 0;
+  }
+
+  .carousel-btn:hover { background: var(--forest); color: white; border-color: var(--forest); }
+
+  .carousel-dots {
+    display: flex;
+    gap: 0.4rem;
+  }
+
+  .carousel-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #ddd8d0;
+    transition: background 0.2s, width 0.2s;
+    cursor: pointer;
+  }
+
+  .carousel-dot.active {
+    background: var(--forest);
+    width: 20px;
+    border-radius: 3px;
   }
 </style>
 </head>
@@ -1246,35 +1287,29 @@
     <p class="section-sub">Most engagements start with one of these. Some turn into all of them.</p>
   </div>
 
-  <div class="cases-grid">
+  <div class="carousel-wrap">
+    <div class="carousel-track" id="caseTrack">
 
-    <div class="case-item">
-      <div class="case-left">
+      <div class="case-card">
         <div class="case-num">01</div>
         <div class="case-title">Preparing for a Funding Round</div>
-      </div>
-      <div class="case-right">
         <div class="case-lead">Investors will ask questions your current finance setup can't answer. I build the financial foundation before you walk into the room.</div>
-        <div class="case-items">
+        <div class="case-tags">
           <span class="case-tag">Financial model & projections</span>
           <span class="case-tag">Budget vs actuals history</span>
           <span class="case-tag">KPI framework</span>
-          <span class="case-tag">Cash flow & runway analysis</span>
-          <span class="case-tag">Data room finance package</span>
-          <span class="case-tag">CFO narrative for investors</span>
+          <span class="case-tag">Cash flow & runway</span>
+          <span class="case-tag">Data room package</span>
+          <span class="case-tag">CFO narrative</span>
         </div>
       </div>
-    </div>
 
-    <div class="case-item">
-      <div class="case-left">
+      <div class="case-card">
         <div class="case-num">02</div>
         <div class="case-title">Post-Round: Building the Finance Function</div>
-      </div>
-      <div class="case-right">
         <div class="case-lead">You closed the round. Now your new board members expect institutional-grade reporting every month. Time to build the infrastructure.</div>
-        <div class="case-items">
-          <span class="case-tag">Financial policies & procedures</span>
+        <div class="case-tags">
+          <span class="case-tag">Financial policies</span>
           <span class="case-tag">Monthly reporting package</span>
           <span class="case-tag">Board deck financials</span>
           <span class="case-tag">Budget cycle setup</span>
@@ -1282,62 +1317,62 @@
           <span class="case-tag">Finance team structure</span>
         </div>
       </div>
-    </div>
 
-    <div class="case-item">
-      <div class="case-left">
+      <div class="case-card">
         <div class="case-num">03</div>
         <div class="case-title">M&amp;A — Buy Side or Sell Side</div>
-      </div>
-      <div class="case-right">
         <div class="case-lead">Whether you're acquiring or being acquired, the financial picture needs to be clean, documented, and defensible under scrutiny.</div>
-        <div class="case-items">
-          <span class="case-tag">Financial due diligence support</span>
+        <div class="case-tags">
+          <span class="case-tag">Financial due diligence</span>
           <span class="case-tag">Historical reporting cleanup</span>
-          <span class="case-tag">Integration financial planning</span>
+          <span class="case-tag">Integration planning</span>
           <span class="case-tag">Synergy modeling</span>
-          <span class="case-tag">Consolidated reporting setup</span>
+          <span class="case-tag">Consolidated reporting</span>
           <span class="case-tag">Risk assessment</span>
         </div>
       </div>
-    </div>
 
-    <div class="case-item">
-      <div class="case-left">
+      <div class="case-card">
         <div class="case-num">04</div>
         <div class="case-title">Financial Process Optimization</div>
-      </div>
-      <div class="case-right">
-        <div class="case-lead">Month-end close takes two weeks. Forecasts are stale before they're published. Reporting is a manual scramble. I redesign the process so the numbers arrive faster and people trust them.</div>
-        <div class="case-items">
+        <div class="case-lead">Month-end close takes two weeks. Forecasts are stale before they're published. I redesign the process so the numbers arrive faster and people trust them.</div>
+        <div class="case-tags">
           <span class="case-tag">Close cycle reduction</span>
           <span class="case-tag">Forecast automation</span>
           <span class="case-tag">Oracle / SAP optimization</span>
-          <span class="case-tag">Variance analysis framework</span>
+          <span class="case-tag">Variance framework</span>
           <span class="case-tag">Reporting calendar</span>
-          <span class="case-tag">Team workflow redesign</span>
+          <span class="case-tag">Workflow redesign</span>
         </div>
       </div>
-    </div>
 
-    <div class="case-item">
-      <div class="case-left">
+      <div class="case-card">
         <div class="case-num">05</div>
         <div class="case-title">Independent Finance Review</div>
-      </div>
-      <div class="case-right">
-        <div class="case-lead">Sometimes you need a senior finance professional who isn't on the payroll to look at the numbers and tell you what's actually going on. No agenda. No politics. Just an honest read.</div>
-        <div class="case-items">
+        <div class="case-lead">Sometimes you need a senior finance professional who isn't on the payroll to look at the numbers honestly. No agenda. No politics. Just a straight read.</div>
+        <div class="case-tags">
           <span class="case-tag">Financial health assessment</span>
           <span class="case-tag">Budget reality check</span>
-          <span class="case-tag">Forecast credibility review</span>
+          <span class="case-tag">Forecast credibility</span>
           <span class="case-tag">Risk blind spots</span>
           <span class="case-tag">Second opinion for board</span>
           <span class="case-tag">CFO performance review</span>
         </div>
       </div>
+
     </div>
 
+    <div class="carousel-nav">
+      <button class="carousel-btn" id="prevBtn">←</button>
+      <button class="carousel-btn" id="nextBtn">→</button>
+      <div class="carousel-dots" id="carouselDots">
+        <div class="carousel-dot active"></div>
+        <div class="carousel-dot"></div>
+        <div class="carousel-dot"></div>
+        <div class="carousel-dot"></div>
+        <div class="carousel-dot"></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1464,5 +1499,43 @@ async function sendEmail() {
 }
 </script>
 
+
+<script>
+(function() {
+  const track = document.getElementById('caseTrack');
+  const dots = document.querySelectorAll('.carousel-dot');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  if (!track) return;
+
+  const cardWidth = () => track.querySelector('.case-card').offsetWidth + 20;
+  let current = 0;
+  const total = dots.length;
+
+  function goTo(index) {
+    current = Math.max(0, Math.min(index, total - 1));
+    track.scrollTo({ left: current * cardWidth(), behavior: 'smooth' });
+    dots.forEach((d, i) => d.classList.toggle('active', i === current));
+  }
+
+  prevBtn.addEventListener('click', () => goTo(current - 1));
+  nextBtn.addEventListener('click', () => goTo(current + 1));
+  dots.forEach((d, i) => d.addEventListener('click', () => goTo(i)));
+
+  // Drag to scroll
+  let isDown = false, startX, scrollLeft;
+  track.addEventListener('mousedown', e => { isDown = true; track.classList.add('dragging'); startX = e.pageX - track.offsetLeft; scrollLeft = track.scrollLeft; });
+  track.addEventListener('mouseleave', () => { isDown = false; track.classList.remove('dragging'); });
+  track.addEventListener('mouseup', () => { isDown = false; track.classList.remove('dragging'); });
+  track.addEventListener('mousemove', e => { if (!isDown) return; e.preventDefault(); const x = e.pageX - track.offsetLeft; track.scrollLeft = scrollLeft - (x - startX); });
+
+  // Update dots on scroll
+  track.addEventListener('scroll', () => {
+    const idx = Math.round(track.scrollLeft / cardWidth());
+    dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+    current = idx;
+  });
+})();
+</script>
 </body>
 </html>
