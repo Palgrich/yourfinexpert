@@ -1376,6 +1376,228 @@
     .pricing-grid { grid-template-columns: 1fr; }
   }
 
+
+  /* BLOG */
+  .blog {
+    background: var(--cream);
+    padding: 6rem 5%;
+  }
+
+  .blog-grid {
+    max-width: 1100px;
+    margin: 3rem auto 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .blog-card {
+    background: var(--white);
+    border-radius: 2px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.2s, transform 0.2s;
+    cursor: pointer;
+  }
+
+  .blog-card:hover {
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+  }
+
+  .blog-card-top {
+    background: var(--forest);
+    padding: 2rem;
+    position: relative;
+    min-height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .blog-tag {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .blog-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.3;
+    margin-top: 0.75rem;
+  }
+
+  .blog-card-body {
+    padding: 1.75rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .blog-meta {
+    font-size: 0.7rem;
+    color: var(--light);
+    letter-spacing: 0.06em;
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 1rem;
+  }
+
+  .blog-excerpt {
+    font-size: 0.84rem;
+    color: var(--mid);
+    line-height: 1.7;
+    flex: 1;
+  }
+
+  .blog-read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 1.25rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--forest);
+    text-decoration: none;
+    transition: gap 0.2s;
+  }
+
+  .blog-read-more:hover { gap: 0.7rem; color: var(--sage); }
+
+  /* ARTICLE MODAL */
+  .article-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 200;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 2rem 1rem;
+    overflow-y: auto;
+    backdrop-filter: blur(4px);
+  }
+
+  .article-overlay.open { display: flex; }
+
+  .article-modal {
+    background: var(--white);
+    max-width: 760px;
+    width: 100%;
+    border-radius: 2px;
+    margin: auto;
+    position: relative;
+  }
+
+  .article-modal-header {
+    background: var(--forest);
+    padding: 3rem 3rem 2.5rem;
+  }
+
+  .article-modal-tag {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .article-modal-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 500;
+    color: var(--white);
+    line-height: 1.2;
+  }
+
+  .article-modal-meta {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.45);
+    margin-top: 1rem;
+    letter-spacing: 0.06em;
+  }
+
+  .article-modal-body {
+    padding: 2.5rem 3rem 3rem;
+  }
+
+  .article-modal-body h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--forest);
+    margin: 2rem 0 0.75rem;
+    line-height: 1.3;
+  }
+
+  .article-modal-body p {
+    font-size: 0.92rem;
+    color: var(--mid);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+
+  .article-modal-body strong { color: var(--charcoal); }
+
+  .article-modal-body ul {
+    margin: 0.5rem 0 1rem 1.25rem;
+  }
+
+  .article-modal-body ul li {
+    font-size: 0.9rem;
+    color: var(--mid);
+    line-height: 1.7;
+    margin-bottom: 0.4rem;
+  }
+
+  .article-cta-block {
+    background: var(--cream);
+    border-left: 3px solid var(--gold);
+    padding: 1.5rem 2rem;
+    margin: 2rem 0;
+    border-radius: 0 2px 2px 0;
+  }
+
+  .article-cta-block p {
+    margin: 0 0 1rem;
+    font-weight: 500;
+    color: var(--charcoal);
+  }
+
+  .article-close {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    width: 36px; height: 36px;
+    background: rgba(255,255,255,0.1);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s;
+    z-index: 10;
+  }
+
+  .article-close:hover { background: rgba(255,255,255,0.2); }
+
+  @media (max-width: 900px) {
+    .blog-grid { grid-template-columns: 1fr; }
+    .article-modal-header { padding: 2rem; }
+    .article-modal-body { padding: 1.5rem 2rem 2rem; }
+  }
+
 </style>
 </head>
 <body>
@@ -1388,6 +1610,7 @@
     <li><a href="#about">About</a></li>
     <li><a href="#process">Process</a></li>
     <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#blog">Blog</a></li>
     <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
   </ul>
 </nav>
@@ -1817,6 +2040,78 @@
   </div>
 </section>
 
+
+<!-- BLOG -->
+<section class="blog" id="blog">
+  <div class="section-header">
+    <div class="section-eyebrow">Insights</div>
+    <h2 class="section-title">Financial clarity starts<br>with the right questions</h2>
+    <p class="section-sub">Practical perspectives on financial leadership for growing companies in California.</p>
+  </div>
+
+  <div class="blog-grid">
+
+    <div class="blog-card" onclick="openArticle('a1')">
+      <div class="blog-card-top">
+        <span class="blog-tag">Fractional CFO</span>
+        <div class="blog-card-title">5 Signs Your Bay Area Company Needs a Fractional CFO</div>
+      </div>
+      <div class="blog-card-body">
+        <div class="blog-meta">
+          <span>8 min read</span>
+          <span>Financial Leadership</span>
+        </div>
+        <div class="blog-excerpt">Your Controller closes the books. Your spreadsheets have spreadsheets. Leadership is making million-dollar decisions with incomplete information. Sound familiar? Here are five signs it's time.</div>
+        <span class="blog-read-more">Read article →</span>
+      </div>
+    </div>
+
+    <div class="blog-card" onclick="openArticle('a2')">
+      <div class="blog-card-top">
+        <span class="blog-tag">Fundraising</span>
+        <div class="blog-card-title">How to Prepare Your Finances Before a Series A or B Round</div>
+      </div>
+      <div class="blog-card-body">
+        <div class="blog-meta">
+          <span>10 min read</span>
+          <span>Fundraising</span>
+        </div>
+        <div class="blog-excerpt">Investors don't just fund ideas — they fund companies that can demonstrate financial discipline. What your books, forecast, and reporting need to look like before you walk into that first meeting.</div>
+        <span class="blog-read-more">Read article →</span>
+      </div>
+    </div>
+
+    <div class="blog-card" onclick="openArticle('a3')">
+      <div class="blog-card-top">
+        <span class="blog-tag">Finance Operations</span>
+        <div class="blog-card-title">Controller vs CFO: What's the Difference and When Do You Need Each?</div>
+      </div>
+      <div class="blog-card-body">
+        <div class="blog-meta">
+          <span>6 min read</span>
+          <span>Team Building</span>
+        </div>
+        <div class="blog-excerpt">Most growing companies confuse the two roles — or assume a Controller can do both. They can't. Here's exactly what each role covers, where they overlap, and when to hire which.</div>
+        <span class="blog-read-more">Read article →</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ARTICLE MODALS -->
+<div class="article-overlay" id="overlay" onclick="closeArticle(event)">
+  <div class="article-modal" id="articleModal">
+    <button class="article-close" onclick="closeArticleBtn()">✕</button>
+    <div class="article-modal-header">
+      <span class="article-modal-tag" id="modalTag"></span>
+      <div class="article-modal-title" id="modalTitle"></div>
+      <div class="article-modal-meta" id="modalMeta"></div>
+    </div>
+    <div class="article-modal-body" id="modalBody"></div>
+  </div>
+</div>
+
 <!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="contact-inner">
@@ -1977,6 +2272,147 @@ async function sendEmail() {
     current = idx;
   });
 })();
+</script>
+
+<script>
+const articles = {
+  a1: {
+    tag: 'Fractional CFO',
+    title: '5 Signs Your Bay Area Company Needs a Fractional CFO',
+    meta: '8 min read · Financial Leadership · San Francisco Bay Area',
+    body: `
+      <p>Most Bay Area founders and CEOs reach the same inflection point somewhere between $5M and $50M in revenue. The business is growing, the decisions are getting bigger — and the finance function hasn't kept up. Here are five signs you've reached that point.</p>
+
+      <h2>1. Your Controller Closes the Books — But Can't Explain the Business</h2>
+      <p>A Controller is essential. They reconcile accounts, manage month-end close, and keep the books accurate. But a Controller looks backward. They tell you what happened. A CFO tells you <strong>what it means, what's coming, and what to do about it.</strong></p>
+      <p>If your finance leader can produce a balance sheet but can't walk your board through a variance analysis or defend a 12-month forecast — you have a Controller doing a Controller's job. You're missing a CFO.</p>
+
+      <h2>2. You're Making Major Decisions Without a Financial Model</h2>
+      <p>Hiring 20 people. Opening a new office. Signing a $2M vendor contract. These are CFO-level decisions that require scenario modeling, cash flow analysis, and a view of downstream impact on the P&L.</p>
+      <p>If your CEO is making these calls based on gut feel and a spreadsheet built by a junior analyst — that's a gap. Not because the instinct is wrong, but because the financial consequences are invisible until they show up in the numbers three quarters later.</p>
+
+      <h2>3. Board Meetings Are Uncomfortable</h2>
+      <p>After a Series A or B, your board includes professional investors who have seen hundreds of finance presentations. They ask precise questions: <strong>Why did Q3 come in 12% below forecast? What's the revised runway at current burn? What does the sensitivity analysis show on that assumption?</strong></p>
+      <p>If those questions make your leadership team uncomfortable — or if the answers require three follow-up emails after the meeting — you need a CFO in the room.</p>
+
+      <h2>4. Your Forecast Is Always Wrong (And No One Knows Why)</h2>
+      <p>Every company misses forecast. The question is whether you understand why. A disciplined variance analysis — budget vs actuals with root-cause explanation — tells you whether a miss was a timing issue, a structural problem, or an external factor. That distinction determines your response.</p>
+      <p>If your monthly close produces a number but not an explanation, you're flying without instruments.</p>
+
+      <h2>5. You're About to Raise, Get Acquired, or Make an Acquisition</h2>
+      <p>Any major financial event — fundraising, M&A, a new credit facility — triggers due diligence. Investors and acquirers look at the same things: quality of financial reporting, credibility of the forecast, integrity of the budget process, and the clarity of the financial narrative.</p>
+      <p>These can't be assembled in two weeks before a data room opens. They need to exist, maintained and documented, before the conversation starts.</p>
+
+      <div class="article-cta-block">
+        <p>If two or more of these sound familiar, a fractional CFO engagement typically starts within two weeks and costs a fraction of a full-time hire.</p>
+        <a href="#contact" class="btn-primary" onclick="closeArticleBtn()" style="font-size:0.8rem;padding:0.7rem 1.5rem;">Schedule a Free Discovery Call</a>
+      </div>
+
+      <h2>The Bottom Line</h2>
+      <p>A Fractional CFO isn't a compromise. For companies between $5M and $150M, it's often the right structure — senior expertise, applied exactly where the business needs it, without the overhead of a $400K full-time executive. Bay Area companies in tech, manufacturing, and professional services are increasingly making this the default model for financial leadership at growth stage.</p>
+    `
+  },
+  a2: {
+    tag: 'Fundraising',
+    title: 'How to Prepare Your Finances Before a Series A or B Round',
+    meta: '10 min read · Fundraising · California',
+    body: `
+      <p>Raising a Series A or B in California is a process that starts long before you send the first pitch deck. The financial materials investors expect — and the scrutiny they apply — have intensified significantly. Here's what needs to be in place before you walk into that first meeting.</p>
+
+      <h2>What Investors Are Actually Looking At</h2>
+      <p>Every serious institutional investor at Series A or B runs the same financial diligence process. They're looking for four things: <strong>a credible financial model, clean historical reporting, a defensible forecast, and a CFO-level voice who can answer hard questions in real time.</strong></p>
+      <p>The absence of any one of these is a yellow flag. The absence of two or more is a deal-killer or a valuation haircut.</p>
+
+      <h2>1. Clean Historical Financials (at Least 24 Months)</h2>
+      <p>Your P&L, balance sheet, and cash flow statement need to be GAAP-compliant, reconciled, and explainable. Investors will ask about every significant line item variance. If your books were maintained by a part-time bookkeeper on QuickBooks and nobody has reviewed them at a CFO level — clean them up before the process starts.</p>
+      <p>This typically takes 4–8 weeks. It cannot be rushed during a live fundraise.</p>
+
+      <h2>2. A Financial Model Investors Can Stress-Test</h2>
+      <p>The model needs to show: revenue build by customer segment or product line, cost structure with clear assumptions, headcount plan, and 18–36 month P&L and cash flow projections. More importantly, the assumptions need to be <strong>grounded in your actual historical performance</strong> — not aspirational math.</p>
+      <p>Investors will change your assumptions and watch how the model moves. If it breaks or produces unrealistic outputs under mild stress, that's a problem.</p>
+
+      <h2>3. A KPI Framework That Matches Your Business</h2>
+      <p>Series A/B investors expect to see the operating metrics that drive your business — and a clear link between those metrics and the financial model. For a SaaS company that's ARR, NRR, CAC/LTV, and churn. For a manufacturing company it's gross margin by product, inventory turns, and capacity utilization.</p>
+      <p>If you don't have a formal KPI dashboard, build one before the process. It shows operational discipline as much as the financials do.</p>
+
+      <h2>4. Budget vs Actuals History</h2>
+      <p>Can you show that your forecasts have historically been accurate? Investors want to see 4–6 quarters of budget vs actuals. A company that consistently hits or explains its misses demonstrates financial discipline. A company that has never formally budgeted is a governance risk.</p>
+
+      <h2>5. A Data Room Finance Package</h2>
+      <p>Your data room should include: audited or reviewed financials (if available), management accounts for the last 24 months, current financial model, KPI dashboard, cap table, and any outstanding debt or obligations. Organize it before the process starts — a disorganized data room signals operational immaturity.</p>
+
+      <h2>6. Someone Who Can Answer the Hard Questions in Real Time</h2>
+      <p>Investor meetings move fast. Questions come unexpectedly. <strong>"What's your gross margin if you strip out the one-time items in Q2?" "How does the model change if customer acquisition cost increases 20%?"</strong> These require a CFO-level person in the room — not a founder who needs to check with the bookkeeper.</p>
+
+      <div class="article-cta-block">
+        <p>Most companies need 8–12 weeks to get financially fundraise-ready. Starting that process after term sheet conversations have begun is too late.</p>
+        <a href="#contact" class="btn-primary" onclick="closeArticleBtn()" style="font-size:0.8rem;padding:0.7rem 1.5rem;">Talk About Your Fundraise Timeline</a>
+      </div>
+
+      <h2>The Timeline That Works</h2>
+      <p>Start financial prep 3–4 months before you plan to begin investor conversations. Use the first 6–8 weeks to clean historical financials and build the model. Use the following 4–6 weeks to stress-test, build the KPI framework, and prepare the data room. Then you enter the process with clean materials and a CFO who can defend every number.</p>
+    `
+  },
+  a3: {
+    tag: 'Finance Operations',
+    title: 'Controller vs CFO: What\'s the Difference and When Do You Need Each?',
+    meta: '6 min read · Team Building · Growing Companies',
+    body: `
+      <p>The most common finance mistake growing companies make is asking a Controller to do a CFO's job — or hiring a CFO when what they actually need is a Controller. The roles are fundamentally different, and confusing them costs money and time.</p>
+
+      <h2>What a Controller Does</h2>
+      <p>A Controller owns the <strong>accuracy and integrity of historical financial data.</strong> Their job is to make sure the books are right: accounts are reconciled, transactions are categorized correctly, month-end close happens on time, and financial statements comply with GAAP.</p>
+      <p>A great Controller is methodical, detail-oriented, and process-driven. They look backward — their job is to accurately record what happened.</p>
+      <p>Controllers typically manage: accounts payable and receivable, payroll, month-end and year-end close, reconciliations, tax compliance (working with your CPA), and basic financial reporting.</p>
+
+      <h2>What a CFO Does</h2>
+      <p>A CFO owns the <strong>financial strategy and forward-looking picture of the business.</strong> They take the Controller's accurate historical data and turn it into insight, decision support, and financial leadership.</p>
+      <p>A CFO's job is to answer: Where are we going? Are we on track? What are the risks? What decisions does leadership need to make, and what does the financial analysis say?</p>
+      <p>CFOs typically manage: financial planning and analysis (FP&A), budget development, rolling forecasts, variance analysis, board and investor reporting, M&A analysis, capital structure, and cash flow strategy.</p>
+
+      <h2>The Key Difference</h2>
+      <p><strong>A Controller tells you what happened. A CFO tells you what it means and what to do next.</strong></p>
+      <p>Both are essential. They're not interchangeable. A Controller cannot substitute for a CFO any more than a CFO can substitute for a Controller — they have fundamentally different skill sets, orientations, and outputs.</p>
+
+      <h2>When Do You Need a Controller?</h2>
+      <p>You need a Controller when your transaction volume outgrows a part-time bookkeeper — typically somewhere between $2M and $5M in revenue. Signs you need one: month-end close is taking too long, your books have reconciliation errors, your CPA keeps flagging issues at year-end, or you're spending CFO-level time on bookkeeping tasks.</p>
+
+      <h2>When Do You Need a CFO?</h2>
+      <p>You need a CFO when decisions start requiring financial modeling and strategic analysis — typically $5M–$10M in revenue, or earlier if you're fundraising. Signs you need one: your board is asking questions you can't answer confidently, you're making major investments without a formal financial model, your forecast is consistently wrong and you don't know why, or you're preparing for a fundraise or M&A process.</p>
+
+      <h2>The Fractional CFO Model</h2>
+      <p>Many companies between $5M and $50M have a Controller (or are ready to hire one) but can't justify a full-time CFO at $300K–$500K per year. The fractional model fills this gap: a senior CFO who works with your company part-time, owns the strategic financial function, and costs a fraction of a full-time hire.</p>
+      <p>The typical structure: your Controller handles the books and close; your Fractional CFO handles budgeting, forecasting, variance analysis, board reporting, and financial strategy. The two roles complement each other — and together they give you a complete finance function.</p>
+
+      <div class="article-cta-block">
+        <p>Not sure which role you need first? A 30-minute conversation is usually enough to figure it out.</p>
+        <a href="#contact" class="btn-primary" onclick="closeArticleBtn()" style="font-size:0.8rem;padding:0.7rem 1.5rem;">Schedule a Free Call</a>
+      </div>
+    `
+  }
+};
+
+function openArticle(id) {
+  const a = articles[id];
+  if (!a) return;
+  document.getElementById('modalTag').textContent = a.tag;
+  document.getElementById('modalTitle').textContent = a.title;
+  document.getElementById('modalMeta').textContent = a.meta;
+  document.getElementById('modalBody').innerHTML = a.body;
+  document.getElementById('overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeArticle(e) {
+  if (e.target === document.getElementById('overlay')) closeArticleBtn();
+}
+
+function closeArticleBtn() {
+  document.getElementById('overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeArticleBtn(); });
 </script>
 </body>
 </html>
