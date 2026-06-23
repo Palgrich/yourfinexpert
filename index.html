@@ -1013,6 +1013,160 @@
     width: 20px;
     border-radius: 3px;
   }
+
+  /* PRICING */
+  .pricing {
+    background: var(--forest);
+    padding: 6rem 5%;
+  }
+
+  .pricing .section-eyebrow { color: rgba(201,169,110,0.8); }
+  .pricing .section-title { color: var(--white); }
+  .pricing .section-sub { color: rgba(255,255,255,0.5); }
+
+  .pricing-grid {
+    max-width: 1100px;
+    margin: 3rem auto 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+    background: rgba(255,255,255,0.07);
+  }
+
+  .pricing-card {
+    background: var(--forest);
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: relative;
+    transition: background 0.2s;
+  }
+
+  .pricing-card.featured {
+    background: var(--forest-mid);
+  }
+
+  .pricing-badge {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--forest);
+    background: var(--gold);
+    padding: 0.25rem 0.6rem;
+    border-radius: 1px;
+  }
+
+  .pricing-type {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .pricing-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--white);
+    line-height: 1.2;
+  }
+
+  .pricing-price {
+    display: flex;
+    align-items: baseline;
+    gap: 0.4rem;
+    padding: 1rem 0;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .pricing-amount {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.4rem;
+    font-weight: 500;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .pricing-unit {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.4;
+  }
+
+  .pricing-desc {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.65;
+    flex: 1;
+  }
+
+  .pricing-includes {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .pricing-line {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.6);
+    display: flex;
+    gap: 0.6rem;
+    align-items: flex-start;
+  }
+
+  .pricing-check {
+    color: var(--gold);
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .pricing-cta {
+    display: inline-block;
+    margin-top: 1rem;
+    background: transparent;
+    border: 1px solid rgba(201,169,110,0.4);
+    color: var(--gold);
+    padding: 0.7rem 1.5rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 1px;
+    transition: background 0.2s, border-color 0.2s;
+    text-align: center;
+  }
+
+  .pricing-cta:hover { background: rgba(201,169,110,0.1); border-color: var(--gold); }
+
+  .pricing-card.featured .pricing-cta {
+    background: var(--gold);
+    color: var(--forest);
+    border-color: var(--gold);
+  }
+
+  .pricing-card.featured .pricing-cta:hover { background: #e0bc80; }
+
+  .pricing-note {
+    max-width: 1100px;
+    margin: 2rem auto 0;
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.3);
+    text-align: center;
+  }
+
+  @media (max-width: 900px) {
+    .pricing-grid { grid-template-columns: 1fr; }
+  }
+
 </style>
 </head>
 <body>
@@ -1024,6 +1178,7 @@
     <li><a href="#services">Services</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#process">Process</a></li>
+    <li><a href="#pricing">Pricing</a></li>
     <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
   </ul>
 </nav>
@@ -1165,24 +1320,6 @@
       </div>
     </div>
 
-    <!-- What you get vs full-time hire -->
-    <div style="background:var(--cream);padding:3rem 3.5rem;border-top:none;">
-      <div style="font-size:0.72rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--light);margin-bottom:1.5rem;">Fractional vs Full-Time</div>
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem;">
-        <div>
-          <div style="font-size:0.85rem;font-weight:700;color:var(--forest);margin-bottom:0.5rem;">Full-time CFO</div>
-          <div style="font-size:0.82rem;color:var(--mid);line-height:1.7;">$200,000–$500,000/yr salary<br>+ benefits + equity + recruiting<br>3–6 months to hire<br>Fixed overhead regardless of workload</div>
-        </div>
-        <div style="display:flex;align-items:center;justify-content:center;">
-          <div style="font-family:'Cormorant Garamond',serif;font-size:3rem;color:var(--gold);opacity:0.4;">vs</div>
-        </div>
-        <div>
-          <div style="font-size:0.85rem;font-weight:700;color:var(--forest);margin-bottom:0.5rem;">Fractional CFO — Tatiana Simonchik</div>
-          <div style="font-size:0.82rem;color:var(--mid);line-height:1.7;">$4,000–$8,000/mo retainer<br>Starts within 2 weeks<br>Scales with your needs<br>20+ years in Big Tech &amp; Manufacturing</div>
-        </div>
-      </div>
-    </div>
-
   </div>
 
 
@@ -1243,6 +1380,76 @@
       </div>
     </div>
   </div>
+</section>
+
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="section-header">
+    <div class="section-eyebrow">Pricing</div>
+    <h2 class="section-title">Three ways to work together</h2>
+    <p class="section-sub">Every engagement is different. Choose the structure that fits your situation — or we'll figure it out on the call.</p>
+  </div>
+
+  <div class="pricing-grid">
+
+    <div class="pricing-card">
+      <div class="pricing-type">Hourly</div>
+      <div class="pricing-name">Advisory &amp; Consulting</div>
+      <div class="pricing-price">
+        <div class="pricing-amount">$300<span style="font-size:1.2rem">+</span></div>
+        <div class="pricing-unit">per hour<br>depending on scope</div>
+      </div>
+      <div class="pricing-desc">For targeted questions, financial reviews, or strategy sessions where you need senior-level input without a longer commitment.</div>
+      <div class="pricing-includes">
+        <div class="pricing-line"><span class="pricing-check">→</span>One-time or occasional sessions</div>
+        <div class="pricing-line"><span class="pricing-check">→</span>Financial model review</div>
+        <div class="pricing-line"><span class="pricing-check">→</span>Second opinion for board or investors</div>
+        <div class="pricing-line"><span class="pricing-check">→</span>Independent finance assessment</div>
+      </div>
+      <a href="#contact" class="pricing-cta">Get in Touch</a>
+    </div>
+
+    <div class="pricing-card featured">
+      <div class="pricing-badge">Most Popular</div>
+      <div class="pricing-type">Monthly Retainer</div>
+      <div class="pricing-name">Fractional CFO</div>
+      <div class="pricing-price">
+        <div class="pricing-amount">$4K–$8K</div>
+        <div class="pricing-unit">per month<br>based on scope</div>
+      </div>
+      <div class="pricing-desc">Ongoing engagement covering the full financial cycle. I act as your part-time CFO — budget, forecast, variance, reporting — every month.</div>
+      <div class="pricing-includes">
+        <div class="pricing-line"><span class="pricing-check">→</span>Monthly variance analysis &amp; reporting</div>
+        <div class="pricing-line"><span class="pricing-check">→</span>Rolling reforecast</div>
+        <div class="pricing-line"><span class="pricing-check">→</span>Annual budget cycle</div>
+        <div class="pricing-line"><span class="pricing-check">→</span>Risk &amp; cash flow monitoring</div>
+        <div class="pricing-line"><span class="pricing-check">→</span>Board &amp; investor reporting support</div>
+      </div>
+      <a href="#contact" class="pricing-cta">Start the Conversation</a>
+    </div>
+
+    <div class="pricing-card">
+      <div class="pricing-type">Project-Based</div>
+      <div class="pricing-name">Fixed-Scope Engagement</div>
+      <div class="pricing-price">
+        <div class="pricing-amount" style="font-size:1.6rem;">By estimate</div>
+        <div class="pricing-unit">fixed price<br>defined deliverables</div>
+      </div>
+      <div class="pricing-desc">For specific one-time needs with a clear output. We agree on scope and price upfront — no surprises, no open-ended billing.</div>
+      <div class="pricing-includes">
+        <div class="pricing-line"><span class="pricing-check">→</span>Budget build from scratch</div>
+        <div class="pricing-line"><span class="pricing-check">→</span>Pre-fundraise financial package</div>
+        <div class="pricing-line"><span class="pricing-check">→</span>M&amp;A due diligence support</div>
+        <div class="pricing-line"><span class="pricing-check">→</span>Financial process redesign</div>
+        <div class="pricing-line"><span class="pricing-check">→</span>ERP / reporting setup</div>
+      </div>
+      <a href="#contact" class="pricing-cta">Get in Touch</a>
+    </div>
+
+  </div>
+
+  <div class="pricing-note">All engagements start with a free 30-minute discovery call. No commitment required.</div>
 </section>
 
 <!-- PROCESS -->
