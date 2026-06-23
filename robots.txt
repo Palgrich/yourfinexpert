@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://yourfinexpert.com/sitemap.xml
