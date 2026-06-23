@@ -1199,7 +1199,7 @@
 
 
 <script>
-function sendEmail() {
+async function sendEmail() {
   const first = document.querySelector('input[placeholder="Sarah"]').value.trim();
   const last = document.querySelector('input[placeholder="Chen"]').value.trim();
   const email = document.querySelector('input[placeholder="sarah@company.com"]').value.trim();
@@ -1212,16 +1212,35 @@ function sendEmail() {
     return;
   }
 
-  const subject = encodeURIComponent('Consulting Inquiry — ' + (service || 'General'));
-  const body = encodeURIComponent(
-    'Name: ' + first + ' ' + last + '\n' +
-    'Email: ' + email + '\n' +
-    'Company / Role: ' + company + '\n' +
-    'Service needed: ' + service + '\n\n' +
-    'Message:\n' + message
-  );
+  const btn = document.getElementById('submitBtn');
+  btn.textContent = 'Sending…';
+  btn.disabled = true;
 
-  window.location.href = 'mailto:tatiana.simonchik@gmail.com?subject=' + subject + '&body=' + body;
+  try {
+    const res = await fetch('https://formspree.io/f/xojovqkp', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        name: first + ' ' + last,
+        email: email,
+        company: company,
+        service: service,
+        message: message
+      })
+    });
+
+    if (res.ok) {
+      btn.textContent = '✓ Message Sent';
+      btn.style.background = '#4A7C62';
+      document.querySelectorAll('.contact-form input, .contact-form select, .contact-form textarea').forEach(el => el.value = '');
+    } else {
+      throw new Error('Failed');
+    }
+  } catch(e) {
+    btn.textContent = 'Send Message →';
+    btn.disabled = false;
+    alert('Something went wrong. Please email tatiana.simonchik@gmail.com directly.');
+  }
 }
 </script>
 
