@@ -859,6 +859,94 @@
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { transition: none !important; }
   }
+
+  /* CASES */
+  .cases {
+    background: var(--white);
+    padding: 6rem 5%;
+  }
+
+  .cases-grid {
+    max-width: 1100px;
+    margin: 3rem auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: #e8e4de;
+  }
+
+  .case-item {
+    background: var(--white);
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 0;
+    cursor: default;
+    transition: background 0.2s;
+  }
+
+  .case-item:hover { background: var(--cream); }
+
+  .case-left {
+    padding: 2rem 2.5rem;
+    border-right: 1px solid #e8e4de;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .case-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.9rem;
+    color: var(--gold);
+    font-weight: 500;
+  }
+
+  .case-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--forest);
+    line-height: 1.25;
+  }
+
+  .case-right {
+    padding: 2rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .case-lead {
+    font-size: 0.88rem;
+    color: var(--charcoal);
+    font-weight: 500;
+    margin-bottom: 0.6rem;
+    line-height: 1.5;
+  }
+
+  .case-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .case-tag {
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--mid);
+    background: var(--cream);
+    border: 1px solid #ddd8d0;
+    padding: 0.25rem 0.7rem;
+    border-radius: 1px;
+  }
+
+  @media (max-width: 900px) {
+    .case-item { grid-template-columns: 1fr; }
+    .case-left { border-right: none; border-bottom: 1px solid #e8e4de; padding: 1.5rem 1.5rem 1rem; }
+    .case-right { padding: 1rem 1.5rem 1.5rem; }
+  }
 </style>
 </head>
 <body>
@@ -1146,6 +1234,110 @@
       <div class="audience-title">US Subsidiaries of International Companies</div>
       <div class="audience-desc">HQ wants US reporting on their timeline in their format. I set up the full financial process from scratch and run it monthly — with the cross-border experience of someone who's done it at SKF and Siemens.</div>
     </div>
+  </div>
+</section>
+
+
+<!-- CASES -->
+<section class="cases" id="cases">
+  <div class="section-header">
+    <div class="section-eyebrow">When Companies Call Me</div>
+    <h2 class="section-title">Recognize your situation?</h2>
+    <p class="section-sub">Most engagements start with one of these. Some turn into all of them.</p>
+  </div>
+
+  <div class="cases-grid">
+
+    <div class="case-item">
+      <div class="case-left">
+        <div class="case-num">01</div>
+        <div class="case-title">Preparing for a Funding Round</div>
+      </div>
+      <div class="case-right">
+        <div class="case-lead">Investors will ask questions your current finance setup can't answer. I build the financial foundation before you walk into the room.</div>
+        <div class="case-items">
+          <span class="case-tag">Financial model & projections</span>
+          <span class="case-tag">Budget vs actuals history</span>
+          <span class="case-tag">KPI framework</span>
+          <span class="case-tag">Cash flow & runway analysis</span>
+          <span class="case-tag">Data room finance package</span>
+          <span class="case-tag">CFO narrative for investors</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-item">
+      <div class="case-left">
+        <div class="case-num">02</div>
+        <div class="case-title">Post-Round: Building the Finance Function</div>
+      </div>
+      <div class="case-right">
+        <div class="case-lead">You closed the round. Now your new board members expect institutional-grade reporting every month. Time to build the infrastructure.</div>
+        <div class="case-items">
+          <span class="case-tag">Financial policies & procedures</span>
+          <span class="case-tag">Monthly reporting package</span>
+          <span class="case-tag">Board deck financials</span>
+          <span class="case-tag">Budget cycle setup</span>
+          <span class="case-tag">Expense controls</span>
+          <span class="case-tag">Finance team structure</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-item">
+      <div class="case-left">
+        <div class="case-num">03</div>
+        <div class="case-title">M&amp;A — Buy Side or Sell Side</div>
+      </div>
+      <div class="case-right">
+        <div class="case-lead">Whether you're acquiring or being acquired, the financial picture needs to be clean, documented, and defensible under scrutiny.</div>
+        <div class="case-items">
+          <span class="case-tag">Financial due diligence support</span>
+          <span class="case-tag">Historical reporting cleanup</span>
+          <span class="case-tag">Integration financial planning</span>
+          <span class="case-tag">Synergy modeling</span>
+          <span class="case-tag">Consolidated reporting setup</span>
+          <span class="case-tag">Risk assessment</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-item">
+      <div class="case-left">
+        <div class="case-num">04</div>
+        <div class="case-title">Financial Process Optimization</div>
+      </div>
+      <div class="case-right">
+        <div class="case-lead">Month-end close takes two weeks. Forecasts are stale before they're published. Reporting is a manual scramble. I redesign the process so the numbers arrive faster and people trust them.</div>
+        <div class="case-items">
+          <span class="case-tag">Close cycle reduction</span>
+          <span class="case-tag">Forecast automation</span>
+          <span class="case-tag">Oracle / SAP optimization</span>
+          <span class="case-tag">Variance analysis framework</span>
+          <span class="case-tag">Reporting calendar</span>
+          <span class="case-tag">Team workflow redesign</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-item">
+      <div class="case-left">
+        <div class="case-num">05</div>
+        <div class="case-title">Independent Finance Review</div>
+      </div>
+      <div class="case-right">
+        <div class="case-lead">Sometimes you need a senior finance professional who isn't on the payroll to look at the numbers and tell you what's actually going on. No agenda. No politics. Just an honest read.</div>
+        <div class="case-items">
+          <span class="case-tag">Financial health assessment</span>
+          <span class="case-tag">Budget reality check</span>
+          <span class="case-tag">Forecast credibility review</span>
+          <span class="case-tag">Risk blind spots</span>
+          <span class="case-tag">Second opinion for board</span>
+          <span class="case-tag">CFO performance review</span>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
